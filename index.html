@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PixelPitch — Audio to Image Converter</title>
+  <meta name="description" content="Convert any audio file into a shareable pixelated image. Decode it back to audio anytime. No server, no uploads — everything runs in your browser.">
+  <meta property="og:title" content="PixelPitch — Audio to Image Converter">
+  <meta property="og:description" content="Encode audio into images. Decode images back to audio. Client-side only.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <svg viewBox="0 0 32 32" width="28" height="28" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="2" y="2" width="12" height="12" rx="2" fill="#d4a574"/>
+        <rect x="18" y="2" width="12" height="12" rx="2" fill="#a07850" opacity="0.7"/>
+        <rect x="2" y="18" width="12" height="12" rx="2" fill="#8a6540" opacity="0.5"/>
+        <rect x="18" y="18" width="12" height="12" rx="2" fill="#d4a574"/>
+      </svg>
+      <h1>PixelPitch</h1>
+    </div>
+    <p class="tagline">Audio ↔ Image · Client-side only · No server</p>
+  </header>
+
+  <main>
+    <div class="tabs">
+      <button class="tab active" id="tab-encode">Encode</button>
+      <button class="tab" id="tab-decode">Decode</button>
+    </div>
+
+    <div class="drop-zone" id="drop-zone">
+      <svg class="drop-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+        <polyline points="17 8 12 3 7 8"/>
+        <line x1="12" y1="3" x2="12" y2="15"/>
+      </svg>
+      <p class="drop-label" id="drop-label">Drop audio file here</p>
+      <p class="drop-sublabel" id="drop-sublabel">MP3, WAV, OGG, OPUS, WebM, FLAC, M4A, AAC</p>
+      <input type="file" id="file-input" accept="audio/*">
+    </div>
+
+    <div class="estimate-area" id="estimate-area" hidden>
+      <p class="estimate-text" id="estimate-text"></p>
+      <button id="encode-btn" hidden>Encode to Image</button>
+    </div>
+
+    <div class="progress-area" id="progress-area" hidden>
+      <div class="progress-bar">
+        <div class="progress-fill" id="progress-fill"></div>
+      </div>
+      <p class="progress-text" id="progress-text">Processing...</p>
+    </div>
+
+    <div id="status-message" class="status-message" hidden></div>
+
+    <div class="result-area" id="result-area" hidden>
+      <div id="encode-result" hidden></div>
+      <div id="decode-result" hidden></div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="warning-note">
+      <strong>Platform note:</strong> Some platforms (WhatsApp, Twitter/X, Instagram) re-compress images to JPEG, which destroys pixel data.
+      Use platforms that preserve PNG: Discord, Telegram, email, or direct file transfer.
+    </div>
+    <div class="social-links">
+      <a href="https://github.com/uzairdeveloper223" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub Profile">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+        </svg>
+      </a>
+    </div>
+  </footer>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
