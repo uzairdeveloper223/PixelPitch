@@ -37,6 +37,10 @@ PNG must stay PNG. If a platform re-compresses your image to JPEG (looking at yo
 
 It's a static site. No build step, no dependencies, no npm.
 
+visit [PixelPitch](https://uzairdeveloper223.github.io/PixelPitch/)
+ 
+or 
+
 Open `index.html` in a browser. Done.
 
 If you want to serve it locally:
